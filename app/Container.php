@@ -22,7 +22,18 @@ class Container
 
     public function resolve($key)
     {
-         $output = $this->bindings[$key]['value'];
+
+         if(! isset($this->bindings[$key]['value'])){
+
+             if(class_exists($key)){
+                 return new $key();
+             }
+
+             throw new \Exception("Can't find binding '{$key}'.");
+         }
+
+
+        $output = $this->bindings[$key]['value'];
 
          if($this->bindings[$key]['shared'] && isset($this->singletons[$key])) {
              return $this->singletons[$key];
