@@ -4,5 +4,5 @@ namespace App;
 
 class Mailchimp
 {
-    public function __construct(string $apiKey){}
+    public function __construct(Newsletter $apiKey){}
 }

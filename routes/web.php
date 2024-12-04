@@ -7,7 +7,7 @@ Route::get('/', function () {
 
     $ref = new ReflectionClass(\App\Mailchimp::class);
 
-    dd($ref->getConstructor()->getParameters());
+    dd($ref->getConstructor()->getParameters()[0]->getType()->getName());
 
     $container = new Container();
 //    $container->singleton('my_class', fn() => new \App\Newsletter(uniqid()));
