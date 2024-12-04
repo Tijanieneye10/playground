@@ -4,6 +4,11 @@ use App\Container;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
+    $ref = new ReflectionClass(\App\Mailchimp::class);
+
+    dd($ref->getConstructor()->getParameters());
+
     $container = new Container();
 //    $container->singleton('my_class', fn() => new \App\Newsletter(uniqid()));
 
