@@ -13,3 +13,11 @@ Route::get('/', function () {
 });
 
 Route::get('data', \App\Http\Controllers\UserFilterController::class);
+
+Route::get('payment', function(){
+
+    $paymentType =  new \App\Interface\Actions\PaystackPayment();
+    $makePayment = new \App\Interface\Actions\MakePayment($paymentType);
+
+    echo $makePayment->pay(100);
+});
