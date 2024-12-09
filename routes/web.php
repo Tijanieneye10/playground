@@ -11,3 +11,5 @@ Route::get('/', function () {
     var_dump($container->resolve('my_class'));
     var_dump($container->resolve('my_class'));
 });
+
+Route::get('data', \App\Http\Controllers\UserFilterController::class);
